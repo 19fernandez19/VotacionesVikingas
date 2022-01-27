@@ -47,6 +47,11 @@ public class Vista extends JFrame {
 	public JButton botonMelilla;
 	public JButton botonCeuta;
 	
+	public JProgressBar barraProgreso18a25;
+	public JProgressBar barraProgreso26a40;
+	public JProgressBar barraProgreso41a65;
+	public JProgressBar barraProgreso66Mas;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,6 +69,7 @@ public class Vista extends JFrame {
 	 * Create the frame.
 	 */
 	public Vista() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 938, 671);
 		contentPane = new JPanel();
@@ -107,40 +113,44 @@ public class Vista extends JFrame {
 		textoPODEMOS.setBounds(327, 10, 77, 31);
 		contentPane.add(textoPODEMOS);
 		
-		JProgressBar barraProgresoPP = new JProgressBar();
-		barraProgresoPP.setBounds(85, 521, 146, 23);
-		contentPane.add(barraProgresoPP);
+		barraProgreso18a25 = new JProgressBar();
+		barraProgreso18a25.setBounds(95, 521, 146, 23);
+		contentPane.add(barraProgreso18a25);
 		
-		JProgressBar barraProgresoPSOE = new JProgressBar();
-		barraProgresoPSOE.setBounds(372, 521, 146, 23);
-		contentPane.add(barraProgresoPSOE);
+		barraProgreso26a40 = new JProgressBar();
+		barraProgreso26a40.setBounds(372, 521, 146, 23);
+		contentPane.add(barraProgreso26a40);
 		
-		JProgressBar barraProgresoVOX = new JProgressBar();
-		barraProgresoVOX.setBounds(85, 581, 146, 23);
-		contentPane.add(barraProgresoVOX);
+		barraProgreso41a65 = new JProgressBar();
+		barraProgreso41a65.setBounds(95, 581, 146, 23);
+		contentPane.add(barraProgreso41a65);
 		
-		JProgressBar barraProgresoPODEMOS = new JProgressBar();
-		barraProgresoPODEMOS.setBounds(372, 581, 146, 23);
-		contentPane.add(barraProgresoPODEMOS);
+		barraProgreso66Mas = new JProgressBar();
+		barraProgreso66Mas.setBounds(372, 581, 146, 23);
+		contentPane.add(barraProgreso66Mas);
 		
-		JLabel labelPP = new JLabel("PP");
+		JLabel labelPP = new JLabel("18-25");
+		labelPP.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPP.setFont(new Font("Agency FB", Font.BOLD, 24));
-		labelPP.setBounds(32, 521, 43, 23);
+		labelPP.setBounds(32, 521, 49, 23);
 		contentPane.add(labelPP);
 		
-		JLabel lblVox = new JLabel("VOX");
+		JLabel lblVox = new JLabel("41-65");
+		lblVox.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVox.setFont(new Font("Agency FB", Font.BOLD, 24));
-		lblVox.setBounds(32, 581, 43, 23);
+		lblVox.setBounds(32, 581, 49, 23);
 		contentPane.add(lblVox);
 		
-		JLabel lblPsoe = new JLabel("PSOE");
+		JLabel lblPsoe = new JLabel("26-40");
+		lblPsoe.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPsoe.setFont(new Font("Agency FB", Font.BOLD, 24));
-		lblPsoe.setBounds(274, 521, 43, 23);
+		lblPsoe.setBounds(274, 521, 71, 23);
 		contentPane.add(lblPsoe);
 		
-		JLabel lblPodemos = new JLabel("PODEMOS");
+		JLabel lblPodemos = new JLabel("66+");
+		lblPodemos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPodemos.setFont(new Font("Agency FB", Font.BOLD, 24));
-		lblPodemos.setBounds(274, 581, 88, 23);
+		lblPodemos.setBounds(274, 581, 71, 23);
 		contentPane.add(lblPodemos);
 		
 		JPanel panelComunidadesAutonomas = new JPanel();

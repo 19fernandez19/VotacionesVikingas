@@ -3,23 +3,29 @@ package modelo;
 public class ComunidadAutonoma {
 
 	// Votos de la CA dependiendo del rango de edad
-	public int[] votantesPP;
-	public int[] votantesPSOE;
-	public int[] votantesVOX;
-	public int[] votantesPODEMOS;
-	
-	private static Object object = new Object();
+	public int[] votantesPP = new int [4];
+	public int[] votantesPSOE = new int [4];
+	public int[] votantesVOX = new int [4];
+	public int[] votantesPODEMOS = new int [4];
+	String nombreComunidad;
+	boolean calculada = false;
 
-	public ComunidadAutonoma(int[] votantesPP, int[] votantesPSOE, int[] votantesVOX, int[] votantesPODEMOS) {
+	public ComunidadAutonoma(String nombreComunidad) {
 		super();
-		this.votantesPP = votantesPP;
-		this.votantesPSOE = votantesPSOE;
-		this.votantesVOX = votantesVOX;
-		this.votantesPODEMOS = votantesPODEMOS;
-	}
-	
-	public ComunidadAutonoma() {
+		this.nombreComunidad = nombreComunidad;
 		
+	}
+
+	public ComunidadAutonoma() {
+
+	}
+
+	public String getNombreComunidad() {
+		return nombreComunidad;
+	}
+
+	public void setNombreComunidad(String nombreComunidad) {
+		this.nombreComunidad = nombreComunidad;
 	}
 
 	public int[] getVotantesPP() {
@@ -54,18 +60,12 @@ public class ComunidadAutonoma {
 		this.votantesPODEMOS = votantesPODEMOS;
 	}
 	
-	public void votar () {
-		
-		int votoCiudadano = 100000;
-		int habitantesCA = 5000000;
-		double porcentajeHab = habitantesCA / 14;
-		double numVotos = porcentajeHab / votoCiudadano;
-		
-		synchronized (object) {
-			while (numVotos <= 3) {
-				System.out.println("El ciudadano entre el rango de edad 18-25 años ha votado a ");
-			}
-			
-		}
+	public boolean isCalculada() {
+		return calculada;
 	}
+
+	public void setCalculada(boolean calculada) {
+		this.calculada = calculada;
+	}
+
 }
