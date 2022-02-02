@@ -47,6 +47,7 @@ public class Vista extends JFrame {
 	public JButton botonMelilla;
 	public JButton botonCeuta;
 	
+	//progressBar que calcula el ganador de cada rango de cada comunidad autonoma
 	public JProgressBar barraProgreso18a25;
 	public JProgressBar barraProgreso26a40;
 	public JProgressBar barraProgreso41a65;

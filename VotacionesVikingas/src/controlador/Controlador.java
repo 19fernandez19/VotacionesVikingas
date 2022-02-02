@@ -69,6 +69,176 @@ public class Controlador {
 				controlador.actualizarProgressBar(frame, Catalunia);
 			}
 		});
+		
+		frame.botonAndalucia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Andalucia.isCalculada() == false) {
+					controlador.cogerHabitantes(Andalucia);
+					Andalucia.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Andalucia);
+			}
+		});
+		
+		frame.botonAragon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Aragon.isCalculada() == false) {
+					controlador.cogerHabitantes(Aragon);
+					Aragon.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Aragon);
+			}
+		});
+		
+		frame.botonBaleares.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Baleares.isCalculada() == false) {
+					controlador.cogerHabitantes(Baleares);
+					Baleares.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Baleares);
+			}
+		});
+		
+		frame.botonCanarias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Canarias.isCalculada() == false) {
+					controlador.cogerHabitantes(Canarias);
+					Canarias.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Canarias);
+			}
+		});
+		
+		frame.botonCantabria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Cantabria.isCalculada() == false) {
+					controlador.cogerHabitantes(Cantabria);
+					Cantabria.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Cantabria);
+			}
+		});
+		
+		frame.botonCLM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (CLM.isCalculada() == false) {
+					controlador.cogerHabitantes(CLM);
+					CLM.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, CLM);
+			}
+		});
+		
+		frame.botonRioja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Rioja.isCalculada() == false) {
+					controlador.cogerHabitantes(Rioja);
+					Rioja.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Rioja);
+			}
+		});
+		
+		frame.botonMelilla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Melilla.isCalculada() == false) {
+					controlador.cogerHabitantes(Melilla);
+					Melilla.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Melilla);
+			}
+		});
+		
+		frame.botonCyL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (CyL.isCalculada() == false) {
+					controlador.cogerHabitantes(CyL);
+					CyL.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, CyL);
+			}
+		});
+		
+		frame.botonNavarra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Navarra.isCalculada() == false) {
+					controlador.cogerHabitantes(Navarra);
+					Navarra.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Navarra);
+			}
+		});
+		
+		frame.botonValencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Valencia.isCalculada() == false) {
+					controlador.cogerHabitantes(Navarra);
+					Navarra.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Valencia);
+			}
+		});
+		
+		frame.botonExtremadura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Extremadura.isCalculada() == false) {
+					controlador.cogerHabitantes(Extremadura);
+					Extremadura.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Extremadura);
+			}
+		});
+		
+		frame.botonGalicia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Galicia.isCalculada() == false) {
+					controlador.cogerHabitantes(Galicia);
+					Galicia.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Galicia);
+			}
+		});
+		
+		frame.botonPaisVasco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (PaisVasco.isCalculada() == false) {
+					controlador.cogerHabitantes(PaisVasco);
+					PaisVasco.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, PaisVasco);
+			}
+		});
+		
+		frame.botonAsturias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Asturias.isCalculada() == false) {
+					controlador.cogerHabitantes(Asturias);
+					Asturias.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Asturias);
+			}
+		});
+		
+		frame.botonMurcia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Murcia.isCalculada() == false) {
+					controlador.cogerHabitantes(Murcia);
+					Murcia.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Murcia);
+			}
+		});
+		
+		frame.botonCeuta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Ceuta.isCalculada() == false) {
+					controlador.cogerHabitantes(Ceuta);
+					Ceuta.setCalculada(true);
+				}
+				controlador.actualizarProgressBar(frame, Ceuta);
+			}
+		});
 	}
 	
 	public void cogerHabitantes(ComunidadAutonoma comunidadAutonoma) {
@@ -129,7 +299,6 @@ public class Controlador {
 				}
 				
 			}
-			
 			
 			int [] votosPP = comunidadAutonoma.getVotantesPP();
 			int [] votosPSOE = comunidadAutonoma.getVotantesPSOE();
@@ -220,7 +389,7 @@ public class Controlador {
 				double resultado = comunidadAutonoma.getVotantesPP()[i] + comunidadAutonoma.getVotantesPSOE()[i] + comunidadAutonoma.getVotantesVOX()[i] + comunidadAutonoma.getVotantesPODEMOS()[i];
 				double resultado2 = (comunidadAutonoma.getVotantesPODEMOS()[i] / resultado)*100;
 				barraProgreso[i].setValue((int)resultado2);
-				barraProgreso[i].setForeground(Color.PINK);
+				barraProgreso[i].setForeground(new Color(148, 0, 211));
 			}
 		}
 	}
@@ -275,7 +444,7 @@ public class Controlador {
 		vista.cuadradoPP.setBackground(Color.blue);
 		vista.cuadradoPSOE.setBackground(Color.red);
 		vista.cuadradoVOX.setBackground(Color.green);
-		vista.cuadradoPODEMOS.setBackground(Color.pink);
+		vista.cuadradoPODEMOS.setBackground(new Color(148, 0, 211));
 	}
 
 }
