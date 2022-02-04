@@ -1,14 +1,18 @@
 package vista;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
+import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
+
+
+
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JProgressBar;
@@ -16,36 +20,58 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
 
 public class Vista extends JFrame {
+	public static int votosPP;
+	public static int votosVOX;
+	public static int votosPSOE;
+	public static int votosPODEMOS;
+	
+	public JTextArea textoGanador;
+	
+	public JComboBox comboBox;
+	public JButton botonAplicar;
+	public static int getVotosPP() {
+		return votosPP;
+	}
 
-	public JPanel contentPane;
+	public static void setVotosPP(int votosPP) {
+		Vista.votosPP = votosPP;
+	}
+
+	public static int getVotosVOX() {
+		return votosVOX;
+	}
+
+	public static void setVotosVOX(int votosVOX) {
+		Vista.votosVOX = votosVOX;
+	}
+
+	public static int getVotosPSOE() {
+		return votosPSOE;
+	}
+
+	public static void setVotosPSOE(int votosPSOE) {
+		Vista.votosPSOE = votosPSOE;
+	}
+
+	public static int getVotosPODEMOS() {
+		return votosPODEMOS;
+	}
+
+	public static void setVotosPODEMOS(int votosPODEMOS) {
+		Vista.votosPODEMOS = votosPODEMOS;
+	}
+
+	public JPanel panelPrincipal;
 	
 	public JPanel cuadradoPP;
 	public JPanel cuadradoPSOE;
 	public JPanel cuadradoVOX;
 	public JPanel cuadradoPODEMOS;
-	
-	//botones del panel derecho
-	public JButton botonMadrid;
-	public JButton botonBarcelona;
-	public JButton botonAndalucia;
-	public JButton botonAragon;
-	public JButton botonBaleares;
-	public JButton botonCanarias;
-	public JButton botonCantabria;
-	public JButton botonCLM;
-	public JButton botonCyL;
-	public JButton botonNavarra;
-	public JButton botonValencia;
-	public JButton botonExtremadura;
-	public JButton botonGalicia;
-	public JButton botonPaisVasco;
-	public JButton botonAsturias;
-	public JButton botonMurcia;
-	public JButton botonRioja;
-	public JButton botonMelilla;
-	public JButton botonCeuta;
 	
 	//progressBar que calcula el ganador de cada rango de cada comunidad autonoma
 	public JProgressBar barraProgreso18a25;
@@ -53,18 +79,59 @@ public class Vista extends JFrame {
 	public JProgressBar barraProgreso41a65;
 	public JProgressBar barraProgreso66Mas;
 	
+	public JLabel labelImagenPP;
+	public JLabel labelImagenVOX;
+	public JLabel labelImagenPSOE;
+	public JLabel labelImagenPODEMOS;
+	public JLabel labelGanador;
+	public JLabel imagenGanadora;
+	private JButton botonEspana;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Vista frame = new Vista();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+	
+	public void paint(Graphics g){
+        super.paint(g);
+        
+            
+            double int_rojo = votosPSOE;
+            double int_verde = votosVOX;
+            double int_azul = votosPP;
+            double int_morado = votosPODEMOS;
+            
+            double total_votos = int_rojo + int_verde + int_azul + int_morado;
+            
+            double grados_rojo = Math.round(int_rojo * 360 / total_votos);
+            double grados_verde = Math.round(int_verde * 360 / total_votos);
+            double grados_azul = Math.round(int_azul * 360 / total_votos);
+            double grados_morado = Math.round(int_morado * 360 / total_votos);
+            
+            
+            
+            g.setColor(new Color(255, 0, 0));
+            g.fillArc(145, 90, 400, 400, 0, (int) grados_rojo);
+            
+            g.setColor(new Color(0, 130, 0));
+            g.fillArc(145, 90, 400, 400, (int) grados_rojo, (int)grados_verde);
+        
+            g.setColor(new Color(0, 0, 255));
+            g.fillArc(145, 90, 400, 400, (int)grados_rojo + (int)grados_verde, (int)grados_azul);
+           
+            g.setColor(new Color(156, 41, 161));
+            g.fillArc(145, 90, 400, 400, (int)grados_rojo + (int)grados_verde + (int)grados_azul,(int) grados_morado);
+
+    }
 
 	/**
 	 * Create the frame.
@@ -73,167 +140,142 @@ public class Vista extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 938, 671);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		cuadradoPP = new JPanel();
-		cuadradoPP.setBounds(10, 10, 33, 31);
-		contentPane.add(cuadradoPP);
-		
-		cuadradoPSOE = new JPanel();
-		cuadradoPSOE.setBounds(96, 10, 33, 31);
-		contentPane.add(cuadradoPSOE);
-		
-		cuadradoVOX = new JPanel();
-		cuadradoVOX.setBounds(198, 10, 33, 31);
-		contentPane.add(cuadradoVOX);
-		
-		cuadradoPODEMOS = new JPanel();
-		cuadradoPODEMOS.setBounds(284, 10, 33, 31);
-		contentPane.add(cuadradoPODEMOS);
-		
-		JLabel textoPP = new JLabel("PP");
-		textoPP.setFont(new Font("Agency FB", Font.BOLD, 22));
-		textoPP.setBounds(53, 10, 33, 31);
-		contentPane.add(textoPP);
-		
-		JLabel textoPSOE = new JLabel("PSOE");
-		textoPSOE.setFont(new Font("Agency FB", Font.BOLD, 22));
-		textoPSOE.setBounds(139, 10, 49, 31);
-		contentPane.add(textoPSOE);
-		
-		JLabel textoVOX = new JLabel("VOX");
-		textoVOX.setFont(new Font("Agency FB", Font.BOLD, 22));
-		textoVOX.setBounds(241, 10, 33, 31);
-		contentPane.add(textoVOX);
-		
-		JLabel textoPODEMOS = new JLabel("PODEMOS");
-		textoPODEMOS.setFont(new Font("Agency FB", Font.BOLD, 22));
-		textoPODEMOS.setBounds(327, 10, 77, 31);
-		contentPane.add(textoPODEMOS);
+		panelPrincipal = new JPanel();
+		panelPrincipal.setBackground(new Color(169, 169, 169));
+		panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(panelPrincipal);
+		panelPrincipal.setLayout(null);
 		
 		barraProgreso18a25 = new JProgressBar();
 		barraProgreso18a25.setBounds(95, 521, 146, 23);
-		contentPane.add(barraProgreso18a25);
+		panelPrincipal.add(barraProgreso18a25);
 		
 		barraProgreso26a40 = new JProgressBar();
 		barraProgreso26a40.setBounds(372, 521, 146, 23);
-		contentPane.add(barraProgreso26a40);
+		panelPrincipal.add(barraProgreso26a40);
 		
 		barraProgreso41a65 = new JProgressBar();
 		barraProgreso41a65.setBounds(95, 581, 146, 23);
-		contentPane.add(barraProgreso41a65);
+		panelPrincipal.add(barraProgreso41a65);
 		
 		barraProgreso66Mas = new JProgressBar();
 		barraProgreso66Mas.setBounds(372, 581, 146, 23);
-		contentPane.add(barraProgreso66Mas);
+		panelPrincipal.add(barraProgreso66Mas);
 		
 		JLabel labelPP = new JLabel("18-25");
 		labelPP.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPP.setFont(new Font("Agency FB", Font.BOLD, 24));
 		labelPP.setBounds(32, 521, 49, 23);
-		contentPane.add(labelPP);
+		panelPrincipal.add(labelPP);
 		
 		JLabel lblVox = new JLabel("41-65");
 		lblVox.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVox.setFont(new Font("Agency FB", Font.BOLD, 24));
 		lblVox.setBounds(32, 581, 49, 23);
-		contentPane.add(lblVox);
+		panelPrincipal.add(lblVox);
 		
 		JLabel lblPsoe = new JLabel("26-40");
 		lblPsoe.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPsoe.setFont(new Font("Agency FB", Font.BOLD, 24));
 		lblPsoe.setBounds(274, 521, 71, 23);
-		contentPane.add(lblPsoe);
+		panelPrincipal.add(lblPsoe);
 		
 		JLabel lblPodemos = new JLabel("66+");
 		lblPodemos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPodemos.setFont(new Font("Agency FB", Font.BOLD, 24));
 		lblPodemos.setBounds(274, 581, 71, 23);
-		contentPane.add(lblPodemos);
+		panelPrincipal.add(lblPodemos);
 		
 		JPanel panelComunidadesAutonomas = new JPanel();
+		panelComunidadesAutonomas.setBackground(new Color(211, 211, 211));
 		panelComunidadesAutonomas.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "COMUNIDADES AUTONOMAS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelComunidadesAutonomas.setBounds(545, 10, 369, 594);
-		contentPane.add(panelComunidadesAutonomas);
+		panelComunidadesAutonomas.setBounds(584, 10, 312, 121);
+		panelPrincipal.add(panelComunidadesAutonomas);
 		panelComunidadesAutonomas.setLayout(null);
 		
-		botonMadrid = new JButton("Madrid");
-		botonMadrid.setBounds(24, 38, 85, 21);
-		panelComunidadesAutonomas.add(botonMadrid);
+		comboBox = new JComboBox();
+		comboBox.setFont(new Font("Agency FB", Font.BOLD, 20));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Madrid", "Cataluna", "Galicia", "Asturias", "Cantabria", "Pais Vasco", "Aragon", "Rioja", "Castilla La Mancha", "Castilla y Leon", "Comunidad Valenciana", "Baleares", "Canarias", "Andalucia", "Extremadura", "Ceuta", "Melilla", "Murcia", "Navarra"}));
+		comboBox.setBounds(37, 48, 244, 29);
+		panelComunidadesAutonomas.add(comboBox);
 		
-		botonBarcelona = new JButton("Barcelona");
-		botonBarcelona.setBounds(24, 88, 85, 21);
-		panelComunidadesAutonomas.add(botonBarcelona);
+		botonAplicar = new JButton("APLICAR");
+		botonAplicar.setBounds(116, 87, 85, 21);
+		panelComunidadesAutonomas.add(botonAplicar);
 		
-		botonAndalucia = new JButton("Andalucia");
-		botonAndalucia.setBounds(24, 137, 85, 21);
-		panelComunidadesAutonomas.add(botonAndalucia);
+		JPanel panelEdades = new JPanel();
+		panelEdades.setBackground(new Color(211, 211, 211));
+		panelEdades.setBorder(new TitledBorder(null, "Rangos de Edad", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelEdades.setBounds(10, 493, 558, 121);
+		panelPrincipal.add(panelEdades);
 		
-		botonAragon = new JButton("Arag\u00F3n");
-		botonAragon.setBounds(24, 188, 85, 21);
-		panelComunidadesAutonomas.add(botonAragon);
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(211, 211, 211));
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "TOTAL VOTOS DE LOS PARTIDOS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(10, 10, 558, 466);
+		panelPrincipal.add(panel);
+		panel.setLayout(null);
 		
-		botonBaleares = new JButton("Baleares");
-		botonBaleares.setBounds(24, 238, 85, 21);
-		panelComunidadesAutonomas.add(botonBaleares);
+		labelImagenPP = new JLabel("");
+		labelImagenPP.setBounds(49, 77, 50, 50);
+		panel.add(labelImagenPP);
 		
-		botonCanarias = new JButton("Canarias");
-		botonCanarias.setBounds(24, 290, 85, 21);
-		panelComunidadesAutonomas.add(botonCanarias);
+		cuadradoPP = new JPanel();
+		cuadradoPP.setBounds(6, 77, 33, 50);
+		panel.add(cuadradoPP);
 		
-		botonCantabria = new JButton("Cantabria");
-		botonCantabria.setBounds(24, 346, 85, 21);
-		panelComunidadesAutonomas.add(botonCantabria);
+		labelImagenVOX = new JLabel("");
+		labelImagenVOX.setBounds(49, 157, 50, 50);
+		panel.add(labelImagenVOX);
 		
-		botonCLM = new JButton("CLM");
-		botonCLM.setBounds(24, 396, 85, 21);
-		panelComunidadesAutonomas.add(botonCLM);
+		cuadradoVOX = new JPanel();
+		cuadradoVOX.setBounds(6, 157, 33, 50);
+		panel.add(cuadradoVOX);
 		
-		botonCyL = new JButton("CyL");
-		botonCyL.setBounds(197, 38, 85, 21);
-		panelComunidadesAutonomas.add(botonCyL);
+		labelImagenPSOE = new JLabel("");
+		labelImagenPSOE.setBounds(49, 248, 50, 50);
+		panel.add(labelImagenPSOE);
 		
-		botonNavarra = new JButton("Navarra");
-		botonNavarra.setBounds(197, 88, 85, 21);
-		panelComunidadesAutonomas.add(botonNavarra);
+		cuadradoPSOE = new JPanel();
+		cuadradoPSOE.setBounds(6, 248, 33, 50);
+		panel.add(cuadradoPSOE);
 		
-		botonValencia = new JButton("Valencia");
-		botonValencia.setBounds(197, 137, 85, 21);
-		panelComunidadesAutonomas.add(botonValencia);
+		labelImagenPODEMOS = new JLabel("");
+		labelImagenPODEMOS.setBounds(49, 342, 50, 50);
+		panel.add(labelImagenPODEMOS);
 		
-		botonExtremadura = new JButton("Extremadura");
-		botonExtremadura.setBounds(197, 188, 85, 21);
-		panelComunidadesAutonomas.add(botonExtremadura);
+		cuadradoPODEMOS = new JPanel();
+		cuadradoPODEMOS.setBounds(6, 342, 33, 50);
+		panel.add(cuadradoPODEMOS);
 		
-		botonGalicia = new JButton("Galicia");
-		botonGalicia.setBounds(197, 238, 85, 21);
-		panelComunidadesAutonomas.add(botonGalicia);
+		botonEspana = new JButton("ESPA\u00D1A");
+		botonEspana.setFont(new Font("Agency FB", Font.BOLD, 24));
+		botonEspana.setBounds(431, 20, 103, 38);
+		panel.add(botonEspana);
 		
-		botonPaisVasco = new JButton("Pais Vasco");
-		botonPaisVasco.setBounds(197, 290, 85, 21);
-		panelComunidadesAutonomas.add(botonPaisVasco);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "GANADOR", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBackground(new Color(211, 211, 211));
+		panel_1.setBounds(584, 141, 311, 472);
+		panelPrincipal.add(panel_1);
+		panel_1.setLayout(null);
 		
-		botonAsturias = new JButton("Asturias");
-		botonAsturias.setBounds(197, 346, 85, 21);
-		panelComunidadesAutonomas.add(botonAsturias);
+		labelGanador = new JLabel("GANADOR");
+		labelGanador.setHorizontalAlignment(SwingConstants.CENTER);
+		labelGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
+		labelGanador.setBounds(10, 20, 291, 55);
+		panel_1.add(labelGanador);
 		
-		botonMurcia = new JButton("Murcia");
-		botonMurcia.setBounds(197, 396, 85, 21);
-		panelComunidadesAutonomas.add(botonMurcia);
+		imagenGanadora = new JLabel("");
+		imagenGanadora.setBounds(51, 123, 207, 182);
+		panel_1.add(imagenGanadora);
 		
-		botonRioja = new JButton("Rioja");
-		botonRioja.setBounds(24, 449, 85, 21);
-		panelComunidadesAutonomas.add(botonRioja);
+		textoGanador = new JTextArea();
+		textoGanador.setEditable(false);
+		textoGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
+		textoGanador.setBackground(new Color(211, 211, 211));
+		textoGanador.setBounds(51, 315, 207, 117);
+		panel_1.add(textoGanador);
 		
-		botonCeuta = new JButton("Ceuta");
-		botonCeuta.setBounds(197, 449, 85, 21);
-		panelComunidadesAutonomas.add(botonCeuta);
-		
-		botonMelilla = new JButton("Melilla");
-		botonMelilla.setBounds(113, 513, 85, 21);
-		panelComunidadesAutonomas.add(botonMelilla);
 	}
 }
