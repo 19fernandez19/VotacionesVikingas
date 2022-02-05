@@ -122,7 +122,7 @@ public class Vista extends JFrame {
             
             
             g.setColor(new Color(255, 0, 0));
-            g.fillArc(145, 90, 400, 400, 0, (int) grados_rojo);
+            g.fillArc(145, 90, 400, 400, 0, (int)grados_rojo);
             
             g.setColor(new Color(0, 130, 0));
             g.fillArc(145, 90, 400, 400, (int) grados_rojo, (int)grados_verde);
@@ -141,7 +141,7 @@ public class Vista extends JFrame {
 	public Vista() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 938, 671);
+		setBounds(100, 100, 911, 658);
 		panelPrincipal = new JPanel();
 		panelPrincipal.setBackground(new Color(169, 169, 169));
 		panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -197,7 +197,7 @@ public class Vista extends JFrame {
 		
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Agency FB", Font.BOLD, 20));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Madrid", "Catalunia", "Galicia", "Asturias", "Cantabria", "Pais Vasco", "Aragon", "Rioja", "Castilla La Mancha", "Castilla y Leon", "Comunidad Valenciana", "Baleares", "Canarias", "Andalucia", "Extremadura", "Ceuta", "Melilla", "Murcia", "Navarra"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Madrid", "Catalunia", "Galicia", "Asturias", "Cantabria", "Pais Vasco", "Aragon", "La Rioja", "Castilla La Mancha", "Castilla y Leon", "Comunidad Valenciana", "Baleares", "Canarias", "Andalucia", "Extremadura", "Ceuta", "Melilla", "Murcia", "Navarra"}));
 		comboBox.setBounds(37, 31, 244, 29);
 		panelComunidadesAutonomas.add(comboBox);
 		
@@ -282,7 +282,7 @@ public class Vista extends JFrame {
 		textoGanador.setEditable(false);
 		textoGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
 		textoGanador.setBackground(new Color(211, 211, 211));
-		textoGanador.setBounds(51, 348, 207, 84);
+		textoGanador.setBounds(51, 348, 220, 89);
 		panel_1.add(textoGanador);
 		
 		presidenteGanador = new JLabel("");

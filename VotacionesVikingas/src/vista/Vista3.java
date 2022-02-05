@@ -73,25 +73,25 @@ public class Vista3 extends JFrame {
 		contentPane.add(imagenIglesias);
 		
 		nombreCasado = new JLabel("PABLO CASADO");
-		nombreCasado.setFont(new Font("Agency FB", Font.BOLD, 24));
+		nombreCasado.setFont(new Font("Agency FB", Font.BOLD, 30));
 		nombreCasado.setHorizontalAlignment(SwingConstants.CENTER);
 		nombreCasado.setBounds(20, 476, 192, 56);
 		contentPane.add(nombreCasado);
 		
 		nombreSanchez = new JLabel("PEDRO SANCHEZ");
-		nombreSanchez.setFont(new Font("Agency FB", Font.BOLD, 24));
+		nombreSanchez.setFont(new Font("Agency FB", Font.BOLD, 30));
 		nombreSanchez.setHorizontalAlignment(SwingConstants.CENTER);
 		nombreSanchez.setBounds(241, 476, 192, 56);
 		contentPane.add(nombreSanchez);
 		
 		nombreAbascal = new JLabel("SANTIAGO ABASCAL");
-		nombreAbascal.setFont(new Font("Agency FB", Font.BOLD, 24));
+		nombreAbascal.setFont(new Font("Agency FB", Font.BOLD, 30));
 		nombreAbascal.setHorizontalAlignment(SwingConstants.CENTER);
 		nombreAbascal.setBounds(464, 476, 192, 56);
 		contentPane.add(nombreAbascal);
 		
 		nombreIglesias = new JLabel("PABLO IGLESIAS");
-		nombreIglesias.setFont(new Font("Agency FB", Font.BOLD, 24));
+		nombreIglesias.setFont(new Font("Agency FB", Font.BOLD, 30));
 		nombreIglesias.setHorizontalAlignment(SwingConstants.CENTER);
 		nombreIglesias.setBounds(690, 476, 192, 56);
 		contentPane.add(nombreIglesias);

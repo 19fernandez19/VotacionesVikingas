@@ -15,6 +15,34 @@ public class ComunidadAutonoma {
 		this.nombreComunidad = nombreComunidad;
 		
 	}
+	
+	public void sumarPP(int[] lista) {
+		votantesPP[0] += lista[0];
+		votantesPP[1] += lista[1];
+		votantesPP[2] += lista[2];
+		votantesPP[3] += lista[3];
+	}
+	
+	public void sumarPSOE(int[] lista) {
+		votantesPSOE[0] += lista[0];
+		votantesPSOE[1] += lista[1];
+		votantesPSOE[2] += lista[2];
+		votantesPSOE[3] += lista[3];
+	}
+	
+	public void sumarVOX(int[] lista) {
+		votantesVOX[0] += lista[0];
+		votantesVOX[1] += lista[1];
+		votantesVOX[2] += lista[2];
+		votantesVOX[3] += lista[3];
+	}
+	
+	public void sumarPODEMOS(int[] lista) {
+		votantesPODEMOS[0] += lista[0];
+		votantesPODEMOS[1] += lista[1];
+		votantesPODEMOS[2] += lista[2];
+		votantesPODEMOS[3] += lista[3];
+	}
 
 	public ComunidadAutonoma() {
 

@@ -22,49 +22,52 @@ import com.sun.prism.Graphics;
 import modelo.Ciudadano;
 import modelo.ComunidadAutonoma;
 import vista.Vista;
-import vista.Vista2;
 import vista.Vista3;
 
 
 
 public class Controlador {
+	
+	static ComunidadAutonoma [] comunidadesAutonomas = new ComunidadAutonoma[19];
 	//objetos comunidad autonoma
-	static ComunidadAutonoma madrid = new ComunidadAutonoma("Madrid");
-	static ComunidadAutonoma Catalunia = new ComunidadAutonoma("Catalunia");
-	static ComunidadAutonoma Galicia = new ComunidadAutonoma("Galicia");
-	static ComunidadAutonoma Asturias = new ComunidadAutonoma("Asturias");
-	static ComunidadAutonoma Cantabria = new ComunidadAutonoma("Cantabria");
-	static ComunidadAutonoma PaisVasco = new ComunidadAutonoma("Pais Vasco");
-	static ComunidadAutonoma Navarra = new ComunidadAutonoma("Navarra");
-	static ComunidadAutonoma CLM = new ComunidadAutonoma("Castilla La Mancha");
-	static ComunidadAutonoma CyL = new ComunidadAutonoma("Castilla y Leon");
-	static ComunidadAutonoma Andalucia = new ComunidadAutonoma("Andalucia");
-	static ComunidadAutonoma Extremadura = new ComunidadAutonoma("Extremadura");
-	static ComunidadAutonoma Murcia = new ComunidadAutonoma("Murcia");
-	static ComunidadAutonoma Aragon = new ComunidadAutonoma("Aragon");
-	static ComunidadAutonoma Valencia = new ComunidadAutonoma("Comunidad Valenciana");
-	static ComunidadAutonoma Canarias = new ComunidadAutonoma("Canarias");
-	static ComunidadAutonoma Baleares = new ComunidadAutonoma("Baleares");
-	static ComunidadAutonoma Melilla = new ComunidadAutonoma("Melilla");
-	static ComunidadAutonoma Ceuta = new ComunidadAutonoma("Ceuta");
-	static ComunidadAutonoma Rioja = new ComunidadAutonoma("La Rioja");
+	
 	//METODO MAIN
 	public static void main(String[] args) {
 		
+		comunidadesAutonomas[0]= new ComunidadAutonoma("Madrid");
+		comunidadesAutonomas[1] = new ComunidadAutonoma("Catalunia");
+		comunidadesAutonomas[2] = new ComunidadAutonoma("Galicia");
+		comunidadesAutonomas[3] = new ComunidadAutonoma("Asturias");
+		comunidadesAutonomas[4] = new ComunidadAutonoma("Cantabria");
+		comunidadesAutonomas[5] = new ComunidadAutonoma("Pais Vasco");
+		comunidadesAutonomas[6] = new ComunidadAutonoma("Navarra");
+		comunidadesAutonomas[7] = new ComunidadAutonoma("Castilla La Mancha");
+		comunidadesAutonomas[8] = new ComunidadAutonoma("Castilla y Leon");
+		comunidadesAutonomas[9] = new ComunidadAutonoma("Andalucia");
+		comunidadesAutonomas[10] = new ComunidadAutonoma("Extremadura");
+		comunidadesAutonomas[11] = new ComunidadAutonoma("Murcia");
+		comunidadesAutonomas[12] = new ComunidadAutonoma("Aragon");
+		comunidadesAutonomas[13] = new ComunidadAutonoma("Comunidad Valenciana");
+		comunidadesAutonomas[14] = new ComunidadAutonoma("Canarias");
+		comunidadesAutonomas[15] = new ComunidadAutonoma("Baleares");
+		comunidadesAutonomas[16] = new ComunidadAutonoma("Melilla");
+		comunidadesAutonomas[17] = new ComunidadAutonoma("Ceuta");
+		comunidadesAutonomas[18] = new ComunidadAutonoma("La Rioja");
+		ComunidadAutonoma españa = new ComunidadAutonoma("España");
+		
 		Controlador controlador = new Controlador();
 		
-		//Vista2 frame2 = new Vista2();
-		//controlador.ventanaInicioSesion(frame2);
-		//frame2.setVisible(true);
+		
 		//Para que se te vea el JFrame
 		Vista frame = new Vista();
 		frame.setVisible(true);
 		
 		controlador.verCandidatos(frame);
 		
-		//controlador.fotosElecciones(frame2);
 		//para que te salga centrado la ventana
 		frame.setLocationRelativeTo(null);
+		
+		
 
 		// metodos
 		controlador.colorJPaneles(frame);
@@ -73,437 +76,238 @@ public class Controlador {
 		frame.botonAplicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (frame.comboBox.getSelectedItem().equals("Madrid")) {
-					if (madrid.isCalculada() == false) {
-						controlador.cogerHabitantes(madrid, frame);
-						madrid.setCalculada(true);
+					if (comunidadesAutonomas[0].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[0], frame);
+						comunidadesAutonomas[0].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, madrid);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[0]);
 					
-					controlador.totalVotantesPartido(madrid, frame);
-					controlador.imagenGanadora(frame, madrid);
+					controlador.totalVotantesPartido(comunidadesAutonomas[0], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[0]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Catalunia")) {
-					if (Catalunia.isCalculada() == false) {
-						controlador.cogerHabitantes(Catalunia, frame);
-						Catalunia.setCalculada(true);
+					if (comunidadesAutonomas[1].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[1], frame);
+						comunidadesAutonomas[1].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Catalunia);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[1]);
 					
-					controlador.totalVotantesPartido(Catalunia, frame);
-					controlador.imagenGanadora(frame, Catalunia);
+					controlador.totalVotantesPartido(comunidadesAutonomas[1], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[1]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Galicia")) {
-					if (Galicia.isCalculada() == false) {
-						controlador.cogerHabitantes(Galicia, frame);
-						Galicia.setCalculada(true);
+					if (comunidadesAutonomas[2].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[2], frame);
+						comunidadesAutonomas[2].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Galicia);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[2]);
 					
-					controlador.totalVotantesPartido(Galicia, frame);
-					controlador.imagenGanadora(frame, Galicia);
+					controlador.totalVotantesPartido(comunidadesAutonomas[2], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[2]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Asturias")) {
-					if (Asturias.isCalculada() == false) {
-						controlador.cogerHabitantes(Asturias, frame);
-						Asturias.setCalculada(true);
+					if (comunidadesAutonomas[3].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[3], frame);
+						comunidadesAutonomas[3].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Asturias);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[3]);
 					
-					controlador.totalVotantesPartido(Asturias, frame);
-					controlador.imagenGanadora(frame, Asturias);
+					controlador.totalVotantesPartido(comunidadesAutonomas[3], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[3]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Cantabria")) {
-					if (Cantabria.isCalculada() == false) {
-						controlador.cogerHabitantes(Cantabria, frame);
-						Cantabria.setCalculada(true);
+					if (comunidadesAutonomas[4].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[4], frame);
+						comunidadesAutonomas[4].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Cantabria);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[4]);
 					
-					controlador.totalVotantesPartido(Cantabria, frame);
-					controlador.imagenGanadora(frame, Cantabria);
+					controlador.totalVotantesPartido(comunidadesAutonomas[4], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[4]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Pais Vasco")) {
-					if (PaisVasco.isCalculada() == false) {
-						controlador.cogerHabitantes(PaisVasco, frame);
-						PaisVasco.setCalculada(true);
+					if (comunidadesAutonomas[5].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[5], frame);
+						comunidadesAutonomas[5].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, PaisVasco);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[5]);
 					
-					controlador.totalVotantesPartido(PaisVasco, frame);
-					controlador.imagenGanadora(frame, PaisVasco);
+					controlador.totalVotantesPartido(comunidadesAutonomas[5], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[5]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Navarra")) {
-					if (Navarra.isCalculada() == false) {
-						controlador.cogerHabitantes(Navarra, frame);
-						Navarra.setCalculada(true);
+					if (comunidadesAutonomas[6].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[6], frame);
+						comunidadesAutonomas[6].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Navarra);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[6]);
 					
-					controlador.totalVotantesPartido(Navarra, frame);
-					controlador.imagenGanadora(frame, Navarra);
+					controlador.totalVotantesPartido(comunidadesAutonomas[6], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[6]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Castilla La Mancha")) {
-					if (CLM.isCalculada() == false) {
-						controlador.cogerHabitantes(CLM, frame);
-						CLM.setCalculada(true);
+					if (comunidadesAutonomas[7].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[7], frame);
+						comunidadesAutonomas[7].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, CLM);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[7]);
 					
-					controlador.totalVotantesPartido(CLM, frame);
-					controlador.imagenGanadora(frame, CLM);
+					controlador.totalVotantesPartido(comunidadesAutonomas[7], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[7]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Castilla y Leon")) {
-					if (CyL.isCalculada() == false) {
-						controlador.cogerHabitantes(CyL, frame);
-						CyL.setCalculada(true);
+					if (comunidadesAutonomas[8].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[8], frame);
+						comunidadesAutonomas[8].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, CyL);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[8]);
 					
-					controlador.totalVotantesPartido(CyL, frame);
-					controlador.imagenGanadora(frame, CyL);
+					controlador.totalVotantesPartido(comunidadesAutonomas[8], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[8]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Andalucia")) {
-					if (Andalucia.isCalculada() == false) {
-						controlador.cogerHabitantes(Andalucia, frame);
-						Andalucia.setCalculada(true);
+					if (comunidadesAutonomas[9].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[9], frame);
+						comunidadesAutonomas[9].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Andalucia);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[9]);
 					
-					controlador.totalVotantesPartido(Andalucia, frame);
-					controlador.imagenGanadora(frame, Andalucia);
+					controlador.totalVotantesPartido(comunidadesAutonomas[9], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[9]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Extremadura")) {
-					if (Extremadura.isCalculada() == false) {
-						controlador.cogerHabitantes(Extremadura, frame);
-						Extremadura.setCalculada(true);
+					if (comunidadesAutonomas[10].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[10], frame);
+						comunidadesAutonomas[10].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Extremadura);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[10]);
 					
-					controlador.totalVotantesPartido(Extremadura, frame);
-					controlador.imagenGanadora(frame, Extremadura);
+					controlador.totalVotantesPartido(comunidadesAutonomas[10], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[10]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Murcia")) {
-					if (Murcia.isCalculada() == false) {
-						controlador.cogerHabitantes(Murcia, frame);
-						Murcia.setCalculada(true);
+					if (comunidadesAutonomas[11].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[11], frame);
+						comunidadesAutonomas[11].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Murcia);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[11]);
 					
-					controlador.totalVotantesPartido(Murcia, frame);
-					controlador.imagenGanadora(frame, Murcia);
+					controlador.totalVotantesPartido(comunidadesAutonomas[11], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[11]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Aragon")) {
-					if (Aragon.isCalculada() == false) {
-						controlador.cogerHabitantes(Aragon, frame);
-						Aragon.setCalculada(true);
+					if (comunidadesAutonomas[12].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[12], frame);
+						comunidadesAutonomas[12].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Aragon);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[12]);
 					
-					controlador.totalVotantesPartido(Aragon, frame);
-					controlador.imagenGanadora(frame, Aragon);
+					controlador.totalVotantesPartido(comunidadesAutonomas[12], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[12]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Comunidad Valenciana")) {
-					if (Valencia.isCalculada() == false) {
-						controlador.cogerHabitantes(Valencia, frame);
-						Valencia.setCalculada(true);
+					if (comunidadesAutonomas[13].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[13], frame);
+						comunidadesAutonomas[13].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Valencia);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[13]);
 					
-					controlador.totalVotantesPartido(Valencia, frame);
-					controlador.imagenGanadora(frame, Valencia);
+					controlador.totalVotantesPartido(comunidadesAutonomas[13], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[13]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Canarias")) {
-					if (Canarias.isCalculada() == false) {
-						controlador.cogerHabitantes(Canarias, frame);
-						Canarias.setCalculada(true);
+					if (comunidadesAutonomas[14].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[14], frame);
+						comunidadesAutonomas[14].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Canarias);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[14]);
 					
-					controlador.totalVotantesPartido(Canarias, frame);
-					controlador.imagenGanadora(frame, Canarias);
+					controlador.totalVotantesPartido(comunidadesAutonomas[14], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[14]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Baleares")) {
-					if (Baleares.isCalculada() == false) {
-						controlador.cogerHabitantes(Baleares, frame);
-						Baleares.setCalculada(true);
+					if (comunidadesAutonomas[15].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[15], frame);
+						comunidadesAutonomas[15].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Baleares);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[15]);
 					
-					controlador.totalVotantesPartido(Baleares, frame);
-					controlador.imagenGanadora(frame, Baleares);
+					controlador.totalVotantesPartido(comunidadesAutonomas[15], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[15]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Melilla")) {
-					if (Melilla.isCalculada() == false) {
-						controlador.cogerHabitantes(Melilla, frame);
-						Melilla.setCalculada(true);
+					if (comunidadesAutonomas[16].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[16], frame);
+						comunidadesAutonomas[16].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Melilla);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[16]);
 					
-					controlador.totalVotantesPartido(Melilla, frame);
-					controlador.imagenGanadora(frame, Melilla);
+					controlador.totalVotantesPartido(comunidadesAutonomas[16], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[16]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Ceuta")) {
-					if (Ceuta.isCalculada() == false) {
-						controlador.cogerHabitantes(Ceuta, frame);
-						Ceuta.setCalculada(true);
+					if (comunidadesAutonomas[17].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[17], frame);
+						comunidadesAutonomas[17].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Ceuta);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[17]);
 					
-					controlador.totalVotantesPartido(Ceuta, frame);
-					controlador.imagenGanadora(frame, Ceuta);
+					controlador.totalVotantesPartido(comunidadesAutonomas[17], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[17]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("La Rioja")) {
-					if (Rioja.isCalculada() == false) {
-						controlador.cogerHabitantes(Rioja, frame);
-						Rioja.setCalculada(true);
+					if (comunidadesAutonomas[18].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[18], frame);
+						comunidadesAutonomas[18].setCalculada(true);
 					}
-					controlador.actualizarProgressBar(frame, Rioja);
+					controlador.actualizarProgressBar(frame, comunidadesAutonomas[18]);
 					
-					controlador.totalVotantesPartido(Rioja, frame);
-					controlador.imagenGanadora(frame, Rioja);
+					controlador.totalVotantesPartido(comunidadesAutonomas[18], frame);
+					controlador.imagenGanadora(frame, comunidadesAutonomas[18]);
 					frame.repaint();
 				}
 			}
 		});
-		
-		
-		
-		//boton madrid
-	/*	frame.botonMadrid.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if (madrid.isCalculada() == false) {
-					controlador.cogerHabitantes(madrid, frame);
-					madrid.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, madrid);
-				
-				frame.setVotosPP(madrid.getVotantesPP()[0] + madrid.getVotantesPP()[1] + madrid.getVotantesPP()[2] + madrid.getVotantesPP()[3]);
-				frame.setVotosVOX(madrid.getVotantesVOX()[0] + madrid.getVotantesVOX()[1] + madrid.getVotantesVOX()[2] + madrid.getVotantesVOX()[3]);
-				frame.setVotosPSOE(madrid.getVotantesPSOE()[0] + madrid.getVotantesPSOE()[1] + madrid.getVotantesPSOE()[2] + madrid.getVotantesPSOE()[3]);
-				frame.setVotosPODEMOS(madrid.getVotantesPODEMOS()[0] + madrid.getVotantesPODEMOS()[1] + madrid.getVotantesPODEMOS()[2] + madrid.getVotantesPODEMOS()[3]);
-				
-				frame.repaint();
-				
-			}
-		});*/
-		//boton barcelona
-		/*frame.botonBarcelona.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Catalunia.isCalculada() == false) {
-					controlador.cogerHabitantes(Catalunia, frame);
-					Catalunia.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Catalunia);
-				frame.repaint();
-			}
-		});
-		
-		//boton andalucia
-		frame.botonAndalucia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Andalucia.isCalculada() == false) {
-					controlador.cogerHabitantes(Andalucia, frame);
-					Andalucia.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Andalucia);
-				frame.repaint();
-			}
-		});
-		
-		//boton aragon
-		frame.botonAragon.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Aragon.isCalculada() == false) {
-					controlador.cogerHabitantes(Aragon, frame);
-					Aragon.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Aragon);
-				frame.repaint();
-			}
-		});
-		//boton baleares
-		frame.botonBaleares.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Baleares.isCalculada() == false) {
-					controlador.cogerHabitantes(Baleares, frame);
-					Baleares.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Baleares);
-				frame.repaint();
-			}
-		});
-		
-		//boton canarias
-		frame.botonCanarias.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Canarias.isCalculada() == false) {
-					controlador.cogerHabitantes(Canarias, frame);
-					Canarias.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Canarias);
-				frame.repaint();
-			}
-		});
-		
-		//boton cantabria
-		frame.botonCantabria.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Cantabria.isCalculada() == false) {
-					controlador.cogerHabitantes(Cantabria, frame);
-					Cantabria.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Cantabria);
-				frame.repaint();
-			}
-		});
-		
-		//boton castilla la mancha
-		frame.botonCLM.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (CLM.isCalculada() == false) {
-					controlador.cogerHabitantes(CLM, frame);
-					CLM.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, CLM);
-				frame.repaint();
-			}
-		});
-		
-		//boton la rioja
-		frame.botonRioja.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Rioja.isCalculada() == false) {
-					controlador.cogerHabitantes(Rioja, frame);
-					Rioja.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Rioja);
-				frame.repaint();
-			}
-		});
-		
-		//boton melilla
-		frame.botonMelilla.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Melilla.isCalculada() == false) {
-					controlador.cogerHabitantes(Melilla, frame);
-					Melilla.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Melilla);
-				frame.repaint();
-			}
-		});
-		
-		//boton castilla y leon
-		frame.botonCyL.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (CyL.isCalculada() == false) {
-					controlador.cogerHabitantes(CyL, frame);
-					CyL.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, CyL);
-				frame.repaint();
-			}
-		});
-		
-		//boton navarra
-		frame.botonNavarra.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Navarra.isCalculada() == false) {
-					controlador.cogerHabitantes(Navarra, frame);
-					Navarra.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Navarra);
-				frame.repaint();
-			}
-		});
-		
-		//boton valencia
-		frame.botonValencia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Valencia.isCalculada() == false) {
-					controlador.cogerHabitantes(Valencia, frame);
-					Valencia.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Valencia);
-				frame.repaint();
-			}
-		});
-		
-		//boton extremadura
-		frame.botonExtremadura.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Extremadura.isCalculada() == false) {
-					controlador.cogerHabitantes(Extremadura, frame);
-					Extremadura.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Extremadura);
-				frame.repaint();
-			}
-		});
-		
-		//boton galicia
-		frame.botonGalicia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Galicia.isCalculada() == false) {
-					controlador.cogerHabitantes(Galicia, frame);
-					Galicia.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Galicia);
-				frame.repaint();
-			}
-		});
-		
-		//boton pais vasco
-		frame.botonPaisVasco.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (PaisVasco.isCalculada() == false) {
-					controlador.cogerHabitantes(PaisVasco, frame);
-					PaisVasco.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, PaisVasco);
-				frame.repaint();
-			}
-		});
-		
-		//boton asturias
-		frame.botonAsturias.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Asturias.isCalculada() == false) {
-					controlador.cogerHabitantes(Asturias, frame);
-					Asturias.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Asturias);
-				frame.repaint();
-			}
-		});
-		
-		//boton murcia
-		frame.botonMurcia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Murcia.isCalculada() == false) {
-					controlador.cogerHabitantes(Murcia, frame);
-					Murcia.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Murcia);
-				frame.repaint();
-			}
-		});
-		
-		//boton ceuta
-		frame.botonCeuta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (Ceuta.isCalculada() == false) {
-					controlador.cogerHabitantes(Ceuta, frame);
-					Ceuta.setCalculada(true);
-				}
-				controlador.actualizarProgressBar(frame, Ceuta);
-				frame.repaint();
-			}
-		});*/
 		
 		frame.botonEspana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int votosPP = 0;
+				int votosPSOE = 0;
+				int votosVOX = 0;
+				int votosPODEMOS = 0;
+				
+				
+				for (int i = 0; i < comunidadesAutonomas.length; i++) {
+					if (comunidadesAutonomas[i].isCalculada() == false) {
+						controlador.cogerHabitantes(comunidadesAutonomas[i], frame);
+						comunidadesAutonomas[i].setCalculada(true);
+					}
+					
+					votosPP += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[0];
+					votosPSOE += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[1];
+					votosVOX += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[2];
+					votosPODEMOS += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[3];
+
+					españa.sumarPP(comunidadesAutonomas[i].getVotantesPP());
+					españa.sumarPSOE(comunidadesAutonomas[i].getVotantesPSOE());
+					españa.sumarVOX(comunidadesAutonomas[i].getVotantesVOX());
+					españa.sumarPODEMOS(comunidadesAutonomas[i].getVotantesPODEMOS());
+	
+				}
+				
+				
+				
+				frame.setVotosPP(votosPP);
+				frame.setVotosPSOE(votosPSOE);
+				frame.setVotosVOX(votosVOX);
+				frame.setVotosPODEMOS(votosPODEMOS);
+				
+				frame.repaint();
+				
+				controlador.actualizarProgressBar(frame, españa);
+				controlador.imagenGanadora(frame, españa);
+				
+				
 				
 			}
 		});
@@ -552,58 +356,61 @@ public class Controlador {
 	}
 	
 	public void totalVotantesPartido (ComunidadAutonoma comunidadAutonoma, Vista frame) {
-		frame.setVotosPP(comunidadAutonoma.getVotantesPP()[0] + comunidadAutonoma.getVotantesPP()[1] + comunidadAutonoma.getVotantesPP()[2] + comunidadAutonoma.getVotantesPP()[3]);
-		frame.setVotosVOX(comunidadAutonoma.getVotantesVOX()[0] + comunidadAutonoma.getVotantesVOX()[1] + comunidadAutonoma.getVotantesVOX()[2] + comunidadAutonoma.getVotantesVOX()[3]);
-		frame.setVotosPSOE(comunidadAutonoma.getVotantesPSOE()[0] + comunidadAutonoma.getVotantesPSOE()[1] + comunidadAutonoma.getVotantesPSOE()[2] + comunidadAutonoma.getVotantesPSOE()[3]);
-		frame.setVotosPODEMOS(comunidadAutonoma.getVotantesPODEMOS()[0] + comunidadAutonoma.getVotantesPODEMOS()[1] + comunidadAutonoma.getVotantesPODEMOS()[2] + comunidadAutonoma.getVotantesPODEMOS()[3]);
+		frame.setVotosPP(recogerVotosComunidad(comunidadAutonoma)[0]);
+		frame.setVotosPSOE(recogerVotosComunidad(comunidadAutonoma)[1]);
+		frame.setVotosVOX(recogerVotosComunidad(comunidadAutonoma)[2]);
+		frame.setVotosPODEMOS(recogerVotosComunidad(comunidadAutonoma)[3]);
+	}
+	
+	public int[] recogerVotosComunidad (ComunidadAutonoma comunidadAutonoma) {
+		int [] listaVotos = new int[4];
+		
+		listaVotos[0] = comunidadAutonoma.getVotantesPP()[0] + comunidadAutonoma.getVotantesPP()[1] + comunidadAutonoma.getVotantesPP()[2] + comunidadAutonoma.getVotantesPP()[3];
+		listaVotos[1] = comunidadAutonoma.getVotantesPSOE()[0] + comunidadAutonoma.getVotantesPSOE()[1] + comunidadAutonoma.getVotantesPSOE()[2] + comunidadAutonoma.getVotantesPSOE()[3];
+		listaVotos[2] = comunidadAutonoma.getVotantesVOX()[0] + comunidadAutonoma.getVotantesVOX()[1] + comunidadAutonoma.getVotantesVOX()[2] + comunidadAutonoma.getVotantesVOX()[3];
+		listaVotos[3] = comunidadAutonoma.getVotantesPODEMOS()[0] + comunidadAutonoma.getVotantesPODEMOS()[1] + comunidadAutonoma.getVotantesPODEMOS()[2] + comunidadAutonoma.getVotantesPODEMOS()[3];
+		
+		return listaVotos;
+		
 	}
 	
 	public void imagenGanadora(Vista frame, ComunidadAutonoma comunidadAutonoma) {
-		if (frame.getVotosPP() > frame.getVotosPSOE() && frame.getVotosPP() > frame.getVotosVOX() && frame.getVotosPP() > frame.getVotosPODEMOS()) {
+		int [] votos = recogerVotosComunidad(comunidadAutonoma);
+		double totalVotos = votos[0] + votos[1] + votos[2] + votos[3];
+		if (frame.getVotosPP() >= frame.getVotosPSOE() && frame.getVotosPP() >= frame.getVotosVOX() && frame.getVotosPP() >= frame.getVotosPODEMOS()) {
 			frame.presidenteGanador.setText("PABLO CASADO");
 			ImageIcon imagenPP = new ImageIcon("src/imagenes/pp1234.png");
 			frame.imagenGanadora.setIcon(imagenPP);
 			frame.imagenGanadora.setVisible(true);
-			frame.textoGanador.setText("Ha ganado el PP"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad());
-		}else if (frame.getVotosPSOE() > frame.getVotosPP() && frame.getVotosPSOE() > frame.getVotosVOX() && frame.getVotosPSOE() > frame.getVotosPODEMOS()) {
+			double porcentaje = ((votos[0]/ totalVotos)*100);
+			frame.textoGanador.setText("Ha ganado el PP"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
+			
+		}else if (frame.getVotosPSOE() >= frame.getVotosPP() && frame.getVotosPSOE() >= frame.getVotosVOX() && frame.getVotosPSOE() >= frame.getVotosPODEMOS()) {
 			frame.presidenteGanador.setText("PEDRO SANCHEZ");
 			ImageIcon imagenPSOE = new ImageIcon("src/imagenes/psoe1234.png");
 			frame.imagenGanadora.setIcon(imagenPSOE);
 			frame.imagenGanadora.setVisible(true);
-			frame.textoGanador.setText("Ha ganado el PSOE"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad());
-		}else if (frame.getVotosVOX() > frame.getVotosPP() && frame.getVotosVOX() > frame.getVotosPSOE() && frame.getVotosVOX() > frame.getVotosPODEMOS()) {
+			double porcentaje = ((votos[1]/ totalVotos)*100);
+			frame.textoGanador.setText("Ha ganado el PSOE"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
+		}else if (frame.getVotosVOX() >= frame.getVotosPP() && frame.getVotosVOX() >= frame.getVotosPSOE() && frame.getVotosVOX() >= frame.getVotosPODEMOS()) {
 			frame.presidenteGanador.setText("SANTIAGO ABASCAL");
 			ImageIcon imagenVOX = new ImageIcon("src/imagenes/vox1234.png");
 			frame.imagenGanadora.setIcon(imagenVOX);
 			frame.imagenGanadora.setVisible(true);
-			frame.textoGanador.setText("Ha ganado VOX"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad());
+			double porcentaje = ((votos[2]/ totalVotos)*100);
+			frame.textoGanador.setText("Ha ganado VOX"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
 		}else {
 			frame.presidenteGanador.setText("PABLO IGLESIAS");
 			ImageIcon imagenPODEMOS = new ImageIcon("src/imagenes/podemos1234.png");
 			frame.imagenGanadora.setIcon(imagenPODEMOS);
 			frame.imagenGanadora.setVisible(true);
-			frame.textoGanador.setText("Ha ganado PODEMOS"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad());
+			double porcentaje = ((votos[3]/ totalVotos)*100);
+			frame.textoGanador.setText("Ha ganado PODEMOS"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
+			
 		}
-	}
-	
-	public void ventanaInicioSesion(Vista2 vista2) {
-		vista2.botonIniciarSesion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Vista vista = new Vista();
-				vista.setVisible(true);
-				
-				
-			}
-		});
 		
-	
 	}
 	
-	public void fotosElecciones (Vista2 vista2) {
-		ImageIcon imagenElecciones = new ImageIcon("src/imagenes/imagenElecciones2.png");
-		vista2.labelElecciones.setIcon(imagenElecciones);
-		vista2.labelElecciones.setVisible(true);
-	}
 
 	public void imagenesPartidos(Vista frame) {
 		ImageIcon imagenPP = new ImageIcon("src/imagenes/imagenPP3.png");
