@@ -24,6 +24,7 @@ public class Vista2 extends JFrame {
 	public JButton botonIniciarSesion;
 	public JButton botonLimpiar;
 	public JPanel panelBienvenida;
+	public JLabel labelElecciones;
 
 	/**
 	 * Launch the application.
@@ -90,5 +91,9 @@ public class Vista2 extends JFrame {
 		panelBienvenida.setBorder(new TitledBorder(null, "BIENVENIDA", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelBienvenida.setBounds(10, 294, 578, 127);
 		panel.add(panelBienvenida);
+		
+		labelElecciones = new JLabel("");
+		labelElecciones.setBounds(421, 122, 167, 145);
+		panel.add(labelElecciones);
 	}
 }

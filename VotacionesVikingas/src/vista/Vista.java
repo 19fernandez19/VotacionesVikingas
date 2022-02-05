@@ -34,6 +34,7 @@ public class Vista extends JFrame {
 	
 	public JComboBox comboBox;
 	public JButton botonAplicar;
+	public JButton botonCandidatos;
 	public static int getVotosPP() {
 		return votosPP;
 	}
@@ -85,7 +86,8 @@ public class Vista extends JFrame {
 	public JLabel labelImagenPODEMOS;
 	public JLabel labelGanador;
 	public JLabel imagenGanadora;
-	private JButton botonEspana;
+	public JButton botonEspana;
+	public JLabel presidenteGanador;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -195,12 +197,13 @@ public class Vista extends JFrame {
 		
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Agency FB", Font.BOLD, 20));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Madrid", "Cataluna", "Galicia", "Asturias", "Cantabria", "Pais Vasco", "Aragon", "Rioja", "Castilla La Mancha", "Castilla y Leon", "Comunidad Valenciana", "Baleares", "Canarias", "Andalucia", "Extremadura", "Ceuta", "Melilla", "Murcia", "Navarra"}));
-		comboBox.setBounds(37, 48, 244, 29);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Madrid", "Catalunia", "Galicia", "Asturias", "Cantabria", "Pais Vasco", "Aragon", "Rioja", "Castilla La Mancha", "Castilla y Leon", "Comunidad Valenciana", "Baleares", "Canarias", "Andalucia", "Extremadura", "Ceuta", "Melilla", "Murcia", "Navarra"}));
+		comboBox.setBounds(37, 31, 244, 29);
 		panelComunidadesAutonomas.add(comboBox);
 		
 		botonAplicar = new JButton("APLICAR");
-		botonAplicar.setBounds(116, 87, 85, 21);
+		botonAplicar.setFont(new Font("Agency FB", Font.BOLD, 16));
+		botonAplicar.setBounds(107, 79, 94, 29);
 		panelComunidadesAutonomas.add(botonAplicar);
 		
 		JPanel panelEdades = new JPanel();
@@ -253,6 +256,11 @@ public class Vista extends JFrame {
 		botonEspana.setBounds(431, 20, 103, 38);
 		panel.add(botonEspana);
 		
+		botonCandidatos = new JButton("CANDIDATOS");
+		botonCandidatos.setFont(new Font("Agency FB", Font.BOLD, 20));
+		botonCandidatos.setBounds(6, 20, 129, 38);
+		panel.add(botonCandidatos);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "GANADOR", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBackground(new Color(211, 211, 211));
@@ -262,20 +270,26 @@ public class Vista extends JFrame {
 		
 		labelGanador = new JLabel("GANADOR");
 		labelGanador.setHorizontalAlignment(SwingConstants.CENTER);
-		labelGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
+		labelGanador.setFont(new Font("Agency FB", Font.BOLD, 35));
 		labelGanador.setBounds(10, 20, 291, 55);
 		panel_1.add(labelGanador);
 		
 		imagenGanadora = new JLabel("");
-		imagenGanadora.setBounds(51, 123, 207, 182);
+		imagenGanadora.setBounds(51, 115, 220, 220);
 		panel_1.add(imagenGanadora);
 		
 		textoGanador = new JTextArea();
 		textoGanador.setEditable(false);
 		textoGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
 		textoGanador.setBackground(new Color(211, 211, 211));
-		textoGanador.setBounds(51, 315, 207, 117);
+		textoGanador.setBounds(51, 348, 207, 84);
 		panel_1.add(textoGanador);
+		
+		presidenteGanador = new JLabel("");
+		presidenteGanador.setHorizontalAlignment(SwingConstants.CENTER);
+		presidenteGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
+		presidenteGanador.setBounds(10, 74, 291, 44);
+		panel_1.add(presidenteGanador);
 		
 	}
 }
