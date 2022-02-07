@@ -319,35 +319,39 @@ public class Controlador {
 				Vista3 frame3 = new Vista3();
 				frame3.setVisible(true);
 				
-				ImageIcon pabloCasado = new ImageIcon("src/imagenes/pabloCasado.jpg");
+				ImageIcon imagenEspana = new ImageIcon("src/imagenes/españa.png");
+				frame3.imagenEspana.setIcon(imagenEspana);
+				frame3.imagenEspana.setVisible(true);
+				
+				ImageIcon pabloCasado = new ImageIcon("src/imagenes/pabloCasado4.jpg");
 				frame3.imagenCasado.setIcon(pabloCasado);
 				frame3.imagenCasado.setVisible(true);
 				
-				ImageIcon imagenPP = new ImageIcon("src/imagenes/pp234.png");
+				ImageIcon imagenPP = new ImageIcon("src/imagenes/imagenPP777.png");
 				frame3.imagenPP.setIcon(imagenPP);
 				frame3.imagenPP.setVisible(true);
 				
-				ImageIcon pedroSanchez = new ImageIcon("src/imagenes/777.png");
+				ImageIcon pedroSanchez = new ImageIcon("src/imagenes/pedroSanchez58.jpg");
 				frame3.imagenSanchez.setIcon(pedroSanchez);
 				frame3.imagenSanchez.setVisible(true);
 				
-				ImageIcon imagenPSOE = new ImageIcon("src/imagenes/psoe234.png");
+				ImageIcon imagenPSOE = new ImageIcon("src/imagenes/imagenPSOE777.png");
 				frame3.imagenPSOE.setIcon(imagenPSOE);
 				frame3.imagenPSOE.setVisible(true);
 				
-				ImageIcon santiagoAbascal = new ImageIcon("src/imagenes/santiagoAbascal6.png");
+				ImageIcon santiagoAbascal = new ImageIcon("src/imagenes/santiagoAbascal7.png");
 				frame3.imagenAbascal.setIcon(santiagoAbascal);
 				frame3.imagenAbascal.setVisible(true);
 				
-				ImageIcon imagenVOX = new ImageIcon("src/imagenes/vox234.png");
+				ImageIcon imagenVOX = new ImageIcon("src/imagenes/imagenVOX1000.png");
 				frame3.imagenVOX.setIcon(imagenVOX);
 				frame3.imagenVOX.setVisible(true);
 				
-				ImageIcon pabloIglesias = new ImageIcon("src/imagenes/pabloIglesias.jpg");
+				ImageIcon pabloIglesias = new ImageIcon("src/imagenes/ionebelarra778.jpg");
 				frame3.imagenIglesias.setIcon(pabloIglesias);
 				frame3.imagenIglesias.setVisible(true);
 				
-				ImageIcon imagenPODEMOS = new ImageIcon("src/imagenes/podemos234.png");
+				ImageIcon imagenPODEMOS = new ImageIcon("src/imagenes/9887.png");
 				frame3.imagenPODEMOS.setIcon(imagenPODEMOS);
 				frame3.imagenPODEMOS.setVisible(true);
 				
