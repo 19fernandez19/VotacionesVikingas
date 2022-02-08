@@ -52,19 +52,20 @@ public class Vista3 extends JFrame {
 	public Vista3() {
 		setBounds(100, 100, 651, 563);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(128, 128, 128));
+		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBackground(new Color(211, 211, 211));
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(20, 10, 600, 116);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("CANDIDATOS A GANAR LAS ELECCIONES");
+		lblNewLabel.setBackground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Agency FB", Font.BOLD, 45));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 0, 597, 116);
@@ -75,8 +76,8 @@ public class Vista3 extends JFrame {
 		panel.add(imagenEspana);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(211, 211, 211));
-		panel_1.setBorder(new TitledBorder(null, "PARTIDO POPULAR", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(20, 142, 289, 173);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
@@ -96,8 +97,8 @@ public class Vista3 extends JFrame {
 		panel_1.add(imagenPP);
 		
 		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBackground(new Color(211, 211, 211));
-		panel_1_1.setBorder(new TitledBorder(null, "VOX", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1_1.setBackground(new Color(255, 255, 255));
+		panel_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1_1.setBounds(331, 142, 289, 173);
 		contentPane.add(panel_1_1);
 		panel_1_1.setLayout(null);
@@ -117,8 +118,8 @@ public class Vista3 extends JFrame {
 		panel_1_1.add(imagenVOX);
 		
 		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setBackground(new Color(211, 211, 211));
-		panel_1_2.setBorder(new TitledBorder(null, "PARTIDO SOCIALISTA OBRERO ESPA\u00D1OL", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1_2.setBackground(new Color(255, 255, 255));
+		panel_1_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1_2.setBounds(20, 337, 289, 173);
 		contentPane.add(panel_1_2);
 		panel_1_2.setLayout(null);
@@ -138,8 +139,8 @@ public class Vista3 extends JFrame {
 		panel_1_2.add(imagenPSOE);
 		
 		JPanel panel_1_3 = new JPanel();
-		panel_1_3.setBackground(new Color(211, 211, 211));
-		panel_1_3.setBorder(new TitledBorder(null, "UNIDOS PODEMOS", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1_3.setBackground(new Color(255, 255, 255));
+		panel_1_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1_3.setBounds(331, 337, 289, 173);
 		contentPane.add(panel_1_3);
 		panel_1_3.setLayout(null);

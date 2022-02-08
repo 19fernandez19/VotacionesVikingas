@@ -172,11 +172,8 @@ public class Ciudadano extends Thread {
 			}
 		}
 		
-		
-		
 		try {
 			Connection connection = crearConexion();
-			System.out.println("Insertar llamda: " + comunidadAutonoma.getNombreComunidad());
 			insertarVoto(connection, comunidadAutonoma.getNombreComunidad(), votoPartido, rangoEdad);
 			
 		} catch (SQLException e) {
@@ -200,7 +197,6 @@ public class Ciudadano extends Thread {
 			preparedStatement.setInt(2, rangoEdad);
 			preparedStatement.setString(3, votoPartido);
 			preparedStatement.executeUpdate();
-			System.out.println("Insertar metdo: " + preparedStatement);
 	
 			connection.commit();
 		} catch (SQLException e) {

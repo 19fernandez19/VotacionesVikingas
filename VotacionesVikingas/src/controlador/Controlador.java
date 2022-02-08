@@ -29,11 +29,10 @@ import vista.Vista3;
 public class Controlador {
 	
 	static ComunidadAutonoma [] comunidadesAutonomas = new ComunidadAutonoma[19];
-	//objetos comunidad autonoma
 	
 	//METODO MAIN
 	public static void main(String[] args) {
-		
+		//array de comunidades autonomas
 		comunidadesAutonomas[0]= new ComunidadAutonoma("Madrid");
 		comunidadesAutonomas[1] = new ComunidadAutonoma("Catalunia");
 		comunidadesAutonomas[2] = new ComunidadAutonoma("Galicia");
@@ -57,7 +56,6 @@ public class Controlador {
 		
 		Controlador controlador = new Controlador();
 		
-		
 		//Para que se te vea el JFrame
 		Vista frame = new Vista();
 		frame.setVisible(true);
@@ -67,8 +65,6 @@ public class Controlador {
 		//para que te salga centrado la ventana
 		frame.setLocationRelativeTo(null);
 		
-		
-
 		// metodos
 		controlador.colorJPaneles(frame);
 		controlador.imagenesPartidos(frame);
@@ -80,9 +76,11 @@ public class Controlador {
 						controlador.cogerHabitantes(comunidadesAutonomas[0], frame);
 						comunidadesAutonomas[0].setCalculada(true);
 					}
+					//actualizamos el progressbar
 					controlador.actualizarProgressBar(frame, comunidadesAutonomas[0]);
-					
+					//actualizamos la grafica
 					controlador.totalVotantesPartido(comunidadesAutonomas[0], frame);
+					//actualizamos la imagen ganadora
 					controlador.imagenGanadora(frame, comunidadesAutonomas[0]);
 					frame.repaint();
 				}else if (frame.comboBox.getSelectedItem().equals("Catalunia")) {
@@ -269,6 +267,7 @@ public class Controlador {
 			}
 		});
 		
+		//boton de españa
 		frame.botonEspana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int votosPP = 0;
@@ -276,18 +275,20 @@ public class Controlador {
 				int votosVOX = 0;
 				int votosPODEMOS = 0;
 				
-				
+				//recorre todas las comunidades autonomas
 				for (int i = 0; i < comunidadesAutonomas.length; i++) {
 					if (comunidadesAutonomas[i].isCalculada() == false) {
 						controlador.cogerHabitantes(comunidadesAutonomas[i], frame);
 						comunidadesAutonomas[i].setCalculada(true);
 					}
 					
+					//recorre comunidad a comunidad y se van guardando los votos en cada variable especificamente (0 PP, 1 PSOE, 2 VOX Y 3 PODEMOS)
 					votosPP += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[0];
 					votosPSOE += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[1];
 					votosVOX += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[2];
 					votosPODEMOS += controlador.recogerVotosComunidad(comunidadesAutonomas[i])[3];
-
+					
+					//guardamos en españa todos los votos de PP de todas las comunidades, y asi con PSOE, VOX y PODEMOS
 					españa.sumarPP(comunidadesAutonomas[i].getVotantesPP());
 					españa.sumarPSOE(comunidadesAutonomas[i].getVotantesPSOE());
 					españa.sumarVOX(comunidadesAutonomas[i].getVotantesVOX());
@@ -295,24 +296,22 @@ public class Controlador {
 	
 				}
 				
-				
-				
+				//se guarda el numero de votos de PP, para luego actualizar la grafica
 				frame.setVotosPP(votosPP);
 				frame.setVotosPSOE(votosPSOE);
 				frame.setVotosVOX(votosVOX);
 				frame.setVotosPODEMOS(votosPODEMOS);
 				
+				//se dibuja la grafica
 				frame.repaint();
 				
 				controlador.actualizarProgressBar(frame, españa);
 				controlador.imagenGanadora(frame, españa);
 				
-				
-				
 			}
 		});
 	}
-	
+	//fotos del jframe Vista3
 	public void verCandidatos(Vista frame) {
 		frame.botonCandidatos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -323,7 +322,7 @@ public class Controlador {
 				frame3.imagenEspana.setIcon(imagenEspana);
 				frame3.imagenEspana.setVisible(true);
 				
-				ImageIcon pabloCasado = new ImageIcon("src/imagenes/pabloCasado4.jpg");
+				ImageIcon pabloCasado = new ImageIcon("src/imagenes/imagenCasado358.jpg");
 				frame3.imagenCasado.setIcon(pabloCasado);
 				frame3.imagenCasado.setVisible(true);
 				
@@ -331,7 +330,7 @@ public class Controlador {
 				frame3.imagenPP.setIcon(imagenPP);
 				frame3.imagenPP.setVisible(true);
 				
-				ImageIcon pedroSanchez = new ImageIcon("src/imagenes/pedroSanchez58.jpg");
+				ImageIcon pedroSanchez = new ImageIcon("src/imagenes/pedro24.png");
 				frame3.imagenSanchez.setIcon(pedroSanchez);
 				frame3.imagenSanchez.setVisible(true);
 				
@@ -339,7 +338,7 @@ public class Controlador {
 				frame3.imagenPSOE.setIcon(imagenPSOE);
 				frame3.imagenPSOE.setVisible(true);
 				
-				ImageIcon santiagoAbascal = new ImageIcon("src/imagenes/santiagoAbascal7.png");
+				ImageIcon santiagoAbascal = new ImageIcon("src/imagenes/santiago2019.jpg");
 				frame3.imagenAbascal.setIcon(santiagoAbascal);
 				frame3.imagenAbascal.setVisible(true);
 				
@@ -359,6 +358,7 @@ public class Controlador {
 		});
 	}
 	
+	//añadimos esos valores y se actualiza la grafica circular
 	public void totalVotantesPartido (ComunidadAutonoma comunidadAutonoma, Vista frame) {
 		frame.setVotosPP(recogerVotosComunidad(comunidadAutonoma)[0]);
 		frame.setVotosPSOE(recogerVotosComunidad(comunidadAutonoma)[1]);
@@ -366,6 +366,7 @@ public class Controlador {
 		frame.setVotosPODEMOS(recogerVotosComunidad(comunidadAutonoma)[3]);
 	}
 	
+	//sumar todos los votos de cada partido y de cada rango de edad en la array
 	public int[] recogerVotosComunidad (ComunidadAutonoma comunidadAutonoma) {
 		int [] listaVotos = new int[4];
 		
@@ -378,6 +379,7 @@ public class Controlador {
 		
 	}
 	
+	//sacar la imagen ganadora
 	public void imagenGanadora(Vista frame, ComunidadAutonoma comunidadAutonoma) {
 		int [] votos = recogerVotosComunidad(comunidadAutonoma);
 		double totalVotos = votos[0] + votos[1] + votos[2] + votos[3];
@@ -387,35 +389,58 @@ public class Controlador {
 			frame.imagenGanadora.setIcon(imagenPP);
 			frame.imagenGanadora.setVisible(true);
 			double porcentaje = ((votos[0]/ totalVotos)*100);
-			frame.textoGanador.setText("Ha ganado el PP"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
-			
+			frame.textoGanador.setText("Ha ganado el PP"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\ncon un porcentaje de " + (int) porcentaje + "%");
 		}else if (frame.getVotosPSOE() >= frame.getVotosPP() && frame.getVotosPSOE() >= frame.getVotosVOX() && frame.getVotosPSOE() >= frame.getVotosPODEMOS()) {
 			frame.presidenteGanador.setText("PEDRO SANCHEZ");
 			ImageIcon imagenPSOE = new ImageIcon("src/imagenes/psoe1234.png");
 			frame.imagenGanadora.setIcon(imagenPSOE);
 			frame.imagenGanadora.setVisible(true);
 			double porcentaje = ((votos[1]/ totalVotos)*100);
-			frame.textoGanador.setText("Ha ganado el PSOE"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
+			frame.textoGanador.setText("Ha ganado el PSOE"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\ncon un porcentaje de " + (int) porcentaje + "%");
 		}else if (frame.getVotosVOX() >= frame.getVotosPP() && frame.getVotosVOX() >= frame.getVotosPSOE() && frame.getVotosVOX() >= frame.getVotosPODEMOS()) {
 			frame.presidenteGanador.setText("SANTIAGO ABASCAL");
 			ImageIcon imagenVOX = new ImageIcon("src/imagenes/vox1234.png");
 			frame.imagenGanadora.setIcon(imagenVOX);
 			frame.imagenGanadora.setVisible(true);
 			double porcentaje = ((votos[2]/ totalVotos)*100);
-			frame.textoGanador.setText("Ha ganado VOX"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
-		}else {
-			frame.presidenteGanador.setText("PABLO IGLESIAS");
+			frame.textoGanador.setText("Ha ganado VOX"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\ncon un porcentaje de " + (int) porcentaje + "%");
+		}else if(frame.getVotosPODEMOS() >= frame.getVotosPP() && frame.getVotosPODEMOS() >= frame.getVotosPSOE() && frame.getVotosPODEMOS() >= frame.getVotosPP()){
+			frame.presidenteGanador.setText("IONE BELARRA");
 			ImageIcon imagenPODEMOS = new ImageIcon("src/imagenes/podemos1234.png");
 			frame.imagenGanadora.setIcon(imagenPODEMOS);
 			frame.imagenGanadora.setVisible(true);
 			double porcentaje = ((votos[3]/ totalVotos)*100);
-			frame.textoGanador.setText("Ha ganado PODEMOS"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\n con un porcentaje de " + (int) porcentaje + "%");
+			frame.textoGanador.setText("Ha ganado PODEMOS"  + "\n" + "en " + comunidadAutonoma.getNombreComunidad() + "\ncon un porcentaje de " + (int) porcentaje + "%");
 			
-		}
-		
-	}
-	
+		}else {//desempate
+			int ganador = 0;
+			  if (frame.getVotosPP()==frame.getVotosPSOE()) {
+                  ganador= 1 + (int) (Math.random()*2);
+              }else if (frame.getVotosPP()==frame.getVotosVOX()) {
+                  ganador= 1 + (int) (Math.random()*2);
+                  if (ganador==2) {
+                      ganador=3;
+                  }
+              }else if(frame.getVotosPP()==frame.getVotosPODEMOS()) {
+                  ganador= 1 + (int) (Math.random()*2);
+                  if (ganador==2) {
+                      ganador=4;
+                  }
+              }else if (frame.getVotosPSOE()==frame.getVotosVOX()) {
+                  ganador= 2 + (int) (Math.random()*2);
 
+              }else if(frame.getVotosPSOE()==frame.getVotosPODEMOS()) {
+                  ganador= 1 + (int) (Math.random()*2);
+                  if (ganador==1) {
+                      ganador=4;
+                  }
+              }else if (frame.getVotosVOX()==frame.getVotosPODEMOS()) {
+                  ganador= 3 + (int) (Math.random()*2);
+              }
+          }
+		}
+	
+	//metodo de ver las imagenes de al lado de la grafica circular
 	public void imagenesPartidos(Vista frame) {
 		ImageIcon imagenPP = new ImageIcon("src/imagenes/imagenPP3.png");
 		frame.labelImagenPP.setIcon(imagenPP);
@@ -435,6 +460,7 @@ public class Controlador {
 
 	}
 	
+	//metodo de recoger los votos, calcular el numero de votos, que se creen y que se guarden
 	public void cogerHabitantes(ComunidadAutonoma comunidadAutonoma, Vista frame) {
 		String consulta = "SELECT NOMBRE_COMUNIDAD, TOTAL_HABITANTES, RANGO_18_25, RANGO_26_40, RANGO_41_65, RANGO_MAS_66 FROM PORCENTAJES_RANGOEDAD WHERE NOMBRE_COMUNIDAD = ?";
 		
@@ -461,7 +487,6 @@ public class Controlador {
 				rango26_40 = resultado.getInt("RANGO_26_40");
 				rango41_65 = resultado.getInt("RANGO_41_65");
 				rangoMas66 = resultado.getInt("RANGO_MAS_66");
-				
 				
 				System.out.println("Rango de 18 a 25 años: " + rango18_25 + "%");
 				System.out.println("Rango de 26 a 40 años: " + rango26_40 + "%");
@@ -492,7 +517,6 @@ public class Controlador {
 				listaEdades [3] = (int)  Math.round(numeroHilos4);
 			}
 			
-			
 			for (int i = 0; i < listaEdades.length; i++) {
 				for (int j = 0; j < listaEdades[i]; j++) {
 					Ciudadano ciudadano = new Ciudadano(i+1, comunidadAutonoma);
@@ -517,21 +541,25 @@ public class Controlador {
 				contadorPP = contadorPP + votosPP[i];
 			}
 			System.out.println("Total de votos de PP: " + contadorPP);
+			
 			for (int i = 0; i < listaEdades.length; i++) {
 				System.out.println("Hay " + votosPSOE[i] + " personas que han votado a PSOE");
 				contadorPSOE = contadorPSOE + votosPSOE[i];
 			}
 			System.out.println("Total de votos de PSOE: " + contadorPSOE);
+			
 			for (int i = 0; i < listaEdades.length; i++) {
 				System.out.println("Hay " + votosVOX[i] + " personas que han votado a VOX");
 				contadorVOX = contadorVOX + votosVOX[i];
 			}
 			System.out.println("Total de votos de VOX: " + contadorVOX);
+			
 			for (int i = 0; i < listaEdades.length; i++) {
 				System.out.println("Hay " + votosPODEMOS[i] + " personas que han votado a PODEMOS");
 				contadorPODEMOS = contadorPODEMOS + votosPODEMOS[i];
 			}
 			System.out.println("Total de votos de PODEMOS: " + contadorPODEMOS);
+			
 			int votosTotal = contadorPP + contadorPSOE + contadorVOX + contadorPODEMOS;
 			System.out.println("Total de votos: " + votosTotal);
 			
@@ -561,6 +589,7 @@ public class Controlador {
 		}
 	}
 	
+	//metodo para actualizar las barras barras de progreso dependiendo el rango de edad
 	public void actualizarProgressBar(Vista frame, ComunidadAutonoma comunidadAutonoma) {
 		
 		JProgressBar [] barraProgreso = new JProgressBar [4];

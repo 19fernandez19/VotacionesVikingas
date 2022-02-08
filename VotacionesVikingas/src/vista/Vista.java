@@ -143,7 +143,7 @@ public class Vista extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 911, 658);
 		panelPrincipal = new JPanel();
-		panelPrincipal.setBackground(new Color(169, 169, 169));
+		panelPrincipal.setBackground(new Color(224, 255, 255));
 		panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panelPrincipal);
 		panelPrincipal.setLayout(null);
@@ -189,8 +189,8 @@ public class Vista extends JFrame {
 		panelPrincipal.add(lblPodemos);
 		
 		JPanel panelComunidadesAutonomas = new JPanel();
-		panelComunidadesAutonomas.setBackground(new Color(211, 211, 211));
-		panelComunidadesAutonomas.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "COMUNIDADES AUTONOMAS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panelComunidadesAutonomas.setBackground(new Color(255, 255, 255));
+		panelComunidadesAutonomas.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panelComunidadesAutonomas.setBounds(584, 10, 312, 121);
 		panelPrincipal.add(panelComunidadesAutonomas);
 		panelComunidadesAutonomas.setLayout(null);
@@ -207,14 +207,14 @@ public class Vista extends JFrame {
 		panelComunidadesAutonomas.add(botonAplicar);
 		
 		JPanel panelEdades = new JPanel();
-		panelEdades.setBackground(new Color(211, 211, 211));
-		panelEdades.setBorder(new TitledBorder(null, "Rangos de Edad", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelEdades.setBackground(new Color(255, 255, 255));
+		panelEdades.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panelEdades.setBounds(10, 493, 558, 121);
 		panelPrincipal.add(panelEdades);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(211, 211, 211));
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "TOTAL VOTOS DE LOS PARTIDOS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(10, 10, 558, 466);
 		panelPrincipal.add(panel);
 		panel.setLayout(null);
@@ -258,12 +258,12 @@ public class Vista extends JFrame {
 		
 		botonCandidatos = new JButton("CANDIDATOS");
 		botonCandidatos.setFont(new Font("Agency FB", Font.BOLD, 20));
-		botonCandidatos.setBounds(6, 20, 129, 38);
+		botonCandidatos.setBounds(6, 22, 129, 38);
 		panel.add(botonCandidatos);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(null, "GANADOR", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBackground(new Color(211, 211, 211));
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(584, 141, 311, 472);
 		panelPrincipal.add(panel_1);
 		panel_1.setLayout(null);
@@ -281,7 +281,7 @@ public class Vista extends JFrame {
 		textoGanador = new JTextArea();
 		textoGanador.setEditable(false);
 		textoGanador.setFont(new Font("Agency FB", Font.BOLD, 24));
-		textoGanador.setBackground(new Color(211, 211, 211));
+		textoGanador.setBackground(new Color(255, 255, 255));
 		textoGanador.setBounds(51, 348, 220, 89);
 		panel_1.add(textoGanador);
 		
